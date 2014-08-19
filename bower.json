@@ -1,0 +1,15 @@
+{
+  "name": "passwerd",
+  "description": "A client-side password generator for people who want to have secure passwords that they can remember.",
+  "version": "0.0.0",
+  "homepage": "https://github.com/naterkane/passwerd",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-loader": "1.2.x",
+    "angular-mocks": "~1.2.x",
+    "html5-boilerplate": "~4.3.0"
+  }
+}
