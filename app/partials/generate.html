@@ -1,0 +1,22 @@
+<section  id="main_content" class="inner main-inner" ng-controller="WizardCtrl">
+    <p>This is the partial for generate.</p>
+    <wizard on-finish="finishedWizard()"> 
+        <wz-step title="Starting">
+            <h2>Let's generate a Passwerd!</h2>
+            <p>We're going to ask you a few different questions. These questions help us construct a passwerd that you can easily remember. You don't <em>have</em> to answer them honestly, but real answers, help us generate a passwerd that's personal to <strong>you</strong>. If any of the questions are terrible, or you don't have an answer for, just click <em>give me another question</em>. We don't save or send <strong>ANY</strong> of your answers to a server, they are for your eyes only, as the whole point of this thing is to keep your experiences logging into services on the web as secure and humane as possible. Ready to get started?</p>
+            <input type="submit" wz-next value="I'm ready, let's go!" />
+        </wz-step>
+        <wz-step title="Question {{ $index+1 }}"  ng-repeat="q in questions">
+            <h2>Question {{ $index+1 }}</h2>
+            <p>{{ q.question }} {{ q.extra }}</p>
+            <!--<wizard-input-element attribs="q.attrs"></wizard-input-element>-->
+            <input type="{{ q.type }}" ng-model="inputs.input[$index+1]" />
+            <input type="submit" wz-next value="Go on" />
+        </wz-step>
+        <wz-step title="Site Specific">
+            <p>Even more steps!!</p>
+            <input type="submit" wz-next value="Finish now" />
+        </wz-step>
+    </wizard>
+    <p><strong>The model:</strong> {{inputs || json}}</p>
+</section>

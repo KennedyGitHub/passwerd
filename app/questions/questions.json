@@ -1,0 +1,14 @@
+[
+	{
+		"type": "text",
+		"question": "What is your favorite pet's name?"
+	},
+	{
+		"type": "number",
+		"question": "What year did you (or will you) finish high-school?"
+	},
+	{
+		"type": "text",
+		"question": "What is a street that you've lived on? (you don't have to enter 'st.', 'ave.', 'blvd.', etc)"
+	}
+]

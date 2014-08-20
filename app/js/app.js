@@ -2,15 +2,16 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+angular.module('Passwerd', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
+  'Passwerd.filters',
+  'Passwerd.services',
+  'Passwerd.directives',
+  'Passwerd.controllers',
+  'mgo-angular-wizard'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.when('/generate', {templateUrl: 'partials/generate.html', controller: 'Generator'});
+  $routeProvider.when('/about', {templateUrl: 'partials/about.html', controller: 'About'});
+  $routeProvider.otherwise({redirectTo: '/generate'});
 }]);

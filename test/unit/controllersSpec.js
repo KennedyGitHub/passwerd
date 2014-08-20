@@ -2,19 +2,37 @@
 
 /* jasmine specs for controllers go here */
 
-describe('controllers', function(){
-  beforeEach(module('myApp.controllers'));
+describe('controllers', function () {
 
+  describe('Generator', function () {
+    var scope, ctrl, $httpBackend;
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var myCtrl1 = $controller('MyCtrl1', { $scope: {} });
-    expect(myCtrl1).toBeDefined();
-  }));
+    beforeEach(module( 'Passwerd.controllers' ));
 
-  it('should ....', inject(function($controller) {
-    //spec body
-    var myCtrl2 = $controller('MyCtrl2', { $scope: {} });
-    expect(myCtrl2).toBeDefined();
-  }));
+    beforeEach(inject( function ( _$httpBackend_, $rootScope, $controller ) {
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET( 'questions/questions.json' ).respond([
+        {
+          "type": "text",
+          "question": "What is your favorite pet's name?"
+        }
+      ]);
+      scope = $rootScope.$new();
+      ctrl = $controller( 'Generator', {$scope:scope});
+    }));
+
+    
+    it('should create generator model and be defined', inject( function ( $controller ) {
+      //spec body
+      expect( scope.questions ).toBeUndefined();
+      $httpBackend.flush();
+
+      expect( scope.questions ).toEqual([
+      {
+        "type":"text",
+        "question":"What is your favorite pet's name?"
+      }
+      ]);
+    }));
+  });
 });
