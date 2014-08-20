@@ -6,36 +6,36 @@ describe('passwerd', function() {
 
   browser.get('index.html');
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser.getLocationAbsUrl()).toMatch("/view1");
+  it('should automatically redirect to /generate when location hash/fragment is empty', function() {
+    expect(browser.getLocationAbsUrl()).toMatch("/generate");
   });
 
 
-  describe('view1', function() {
+  describe('generate', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/view1');
+      browser.get('index.html#/generate');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 1/);
+    it('should render view1 when user navigates to /generate', function() {
+      expect(element.all(by.css('[ng-view] h2')).first().getText()).
+        toMatch(/Let's generate a Passwerd!/);
     });
 
   });
 
 
-  describe('view2', function() {
+  describe('about', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/view2');
+      browser.get('index.html#/about');
     });
 
 
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
+    it('should render view2 when user navigates to /about', function() {
+      expect(element.all(by.css('[ng-view] h2')).first().getText()).
+        toMatch(/About/);
     });
 
   });
